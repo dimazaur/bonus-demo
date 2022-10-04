@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "551e7a3a-bcbf-4930-9c86-a9da3e70306e",
+		"name": "Transactions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"DDD\",\r\n    \"amount\": 30.00,\r\n    \"timestamp\": \"2022-09-01 01:01:01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add transaction list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 10.00,\r\n        \"timestamp\": \"2022-09-01 01:01:01\"\r\n    },\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 20.00,\r\n        \"timestamp\": \"2022-09-02 02:02:02\"\r\n    },\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 30.00,\r\n        \"timestamp\": \"2022-09-03 03:03:03\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all transactions for the user AAA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/list/AAA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"list",
+						"AAA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List transactions for the user AAA from date1 to date2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/list/AAA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"list",
+						"AAA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate total points for the user AAA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/points/total/AAA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"points",
+						"total",
+						"AAA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate points for the user AAA and the time period",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/points/AAA?dateFrom=2022-08-01T00:00:00&dateTo=2022-08-30T00:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"points",
+						"AAA"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2022-08-01T00:00:00"
+						},
+						{
+							"key": "dateTo",
+							"value": "2022-08-30T00:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
