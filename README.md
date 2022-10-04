@@ -38,6 +38,14 @@ docker run -it --network=host -p 127.0.0.1:8080:8080 \
 
 ---
 
+## Open API
+http://localhost:8080/v3/api-docs/
+
+## Swagger
+http://localhost:8080/swagger-ui/index.html
+
+---
+
 # Testing web services
 ## Postman
 Postman collection file `Transactions.postman_collection.json`
