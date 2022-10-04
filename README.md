@@ -1,6 +1,12 @@
 # Spring-demo
 
-##Prerequisites
+## Continuous integration
+Running CI on each commit
+https://github.com/dimazaur/spring-demo/actions
+- Maven build with tests
+- Docker image build
+
+## Prerequisites
 - JDK 17
 - Maven
 - MySQL database 
@@ -9,12 +15,14 @@
 File src/main/resources/application.properties
 
 ## Local start
-mvnw spring-boot:run
+mvn spring-boot:run
 
+---
+
+# Docker
 ## Default http port
 8080
 
-#Docker
 ## Docker image build
 mvn clean install
 docker build -t spring-demo --no-cache .
@@ -22,7 +30,10 @@ docker build -t spring-demo --no-cache .
 ## Docker run container
 docker run -it --network=host -p 127.0.0.1:8080:8080 --name spring-demo spring-demo
 
-## Add one transaction for the user AAA
+---
+
+# Testing web services
+### Add one transaction for the user AAA
 
 `
 curl --location --request POST 'http://localhost:8080/transaction' \
@@ -34,7 +45,7 @@ curl --location --request POST 'http://localhost:8080/transaction' \
 }'
 `
 
-## Add list of transactions for the user AAA
+### Add list of transactions for the user AAA
 
 `curl --location --request POST 'http://localhost:8080/transaction/list' \
 --header 'Content-Type: application/json' \
@@ -57,18 +68,18 @@ curl --location --request POST 'http://localhost:8080/transaction' \
 ]'`
 
 
-## List all transactions for the user AAA
+### List all transactions for the user AAA
 
 `curl --location --request GET 'http://localhost:8080/transaction/list/AAA'`
 
-## List all transactions for the user AAA and the time period
+### List all transactions for the user AAA and the time period
 
 `curl --location --request GET 'http://localhost:8080/transaction/date/AAA?dateFrom=2022-08-01T00:00:00&dateTo=2022-08-30T00:00:00'`
 
-## Calculate total points for the user AAA
+### Calculate total points for the user AAA
 
 `curl --location --request GET 'http://localhost:8080/points/total/AAA'`
 
-## Calculate points for the user AAA and period of time
+### Calculate points for the user AAA and period of time
 
 `curl --location --request GET 'http://localhost:8080/points/AAA?dateFrom=2022-08-01T00:00:00&dateTo=2022-10-30T00:00:00'`
