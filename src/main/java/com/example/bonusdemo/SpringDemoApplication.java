@@ -1,5 +1,7 @@
 package com.example.bonusdemo;
 
+import com.example.bonusdemo.calculation.GeneralPointsCalculationStrategy;
+import com.example.bonusdemo.calculation.PointsCalculationStrategy;
 import com.example.bonusdemo.service.TransactionService;
 import com.example.bonusdemo.service.TransactionServiceImpl;
 import org.modelmapper.ModelMapper;
@@ -22,5 +24,10 @@ public class SpringDemoApplication {
     @Bean
     public TransactionService transactionService() {
         return new TransactionServiceImpl();
+    }
+
+    @Bean
+    public PointsCalculationStrategy pointsCalculationStrategy() {
+        return new GeneralPointsCalculationStrategy();
     }
 }

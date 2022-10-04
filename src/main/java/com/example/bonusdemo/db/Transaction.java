@@ -2,14 +2,18 @@ package com.example.bonusdemo.db;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
+@Table(
+        name = "transaction",
+        indexes = {
+                @Index(name = "index_user", columnList = "userId"
+                )
+        })
 @NoArgsConstructor
 @ToString
 @Getter
@@ -23,5 +27,7 @@ public class Transaction implements Serializable {
     private String userId;
 
     private BigDecimal amount;
+
+    private LocalDateTime timestamp;
 
 }
