@@ -4,6 +4,7 @@ import com.example.bonusdemo.db.Transaction;
 import com.example.bonusdemo.db.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,11 +29,13 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    @Transactional
     public void save(Transaction transaction) {
         transactionRepository.save(transaction);
     }
 
     @Override
+    @Transactional
     public void saveAll(List<Transaction> transactionList) {
         transactionRepository.saveAll(transactionList);
     }
