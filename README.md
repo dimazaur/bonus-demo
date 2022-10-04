@@ -33,13 +33,16 @@ docker run -it --network=host -p 127.0.0.1:8080:8080 --name spring-demo spring-d
 ---
 
 # Testing web services
+## Postman
+Postman collection file `Transactions.postman_collection.json`
+
+## Curl
 ### Add one transaction for the user AAA
 
 `
 curl --location --request POST 'http://localhost:8080/transaction' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"userId": "AAA",
 "amount": 75.00,
 "timestamp": "2022-10-01 01:01:01"
 }'

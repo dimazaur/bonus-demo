@@ -1,19 +1,16 @@
 package com.example.bonusdemo.controller;
 
 import com.example.bonusdemo.db.Transaction;
-import com.example.bonusdemo.db.TransactionRepository;
 import com.example.bonusdemo.service.TransactionService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.util.Streamable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,7 +35,7 @@ public class TransactionController {
 
     @GetMapping(path = "/transaction/date/{userId}")
     public List<TransactionDto> list(@PathVariable String userId,
-                                     @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime  dateFrom,
+                                     @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime dateFrom,
                                      @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime dateTo) {
 
         log.debug("List transactions for userId: {}, dataFrom: {}, dateTo: {}", userId, dateFrom, dateTo);
