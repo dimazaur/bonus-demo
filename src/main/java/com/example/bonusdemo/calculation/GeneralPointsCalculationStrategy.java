@@ -1,9 +1,11 @@
 package com.example.bonusdemo.calculation;
 
 import com.example.bonusdemo.db.Transaction;
+import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 
+@Slf4j
 public class GeneralPointsCalculationStrategy implements PointsCalculationStrategy {
 
     private static final double FIRST_LEVEL_POINT = 1;
@@ -13,6 +15,7 @@ public class GeneralPointsCalculationStrategy implements PointsCalculationStrate
 
     @Override
     public double calculate(Transaction transaction) {
+        log.debug("calculate transaction: {}", transaction);
         double points = 0;
         BigDecimal amount = transaction.getAmount();
 
@@ -24,6 +27,7 @@ public class GeneralPointsCalculationStrategy implements PointsCalculationStrate
             points += Math.floor(Math.min(amount.doubleValue(), SECOND_LEVEL) - FIRST_LEVEL) * FIRST_LEVEL_POINT;
         }
 
+        log.debug("result points: {}", points);
         return points;
     }
 }

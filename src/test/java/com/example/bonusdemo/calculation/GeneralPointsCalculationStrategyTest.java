@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GeneralPointsCalculationStrategyTest {
 
-    private GeneralPointsCalculationStrategy generalPointsCalculationStrategy = new GeneralPointsCalculationStrategy();
+    private final GeneralPointsCalculationStrategy generalPointsCalculationStrategy = new GeneralPointsCalculationStrategy();
 
     @Test
     public void testZero() {
