@@ -92,5 +92,14 @@ public class GeneralPointsCalculationStrategyTest {
         assertEquals(90.0, points);
     }
 
+    @Test
+    public void testBigAmountBonus() {
+        Transaction transaction = new Transaction();
+        transaction.setAmount(BigDecimal.valueOf(1_000_000.0));
+
+        double points = generalPointsCalculationStrategy.calculate(transaction);
+        assertEquals(1999850.0, points);
+    }
+
 
 }
