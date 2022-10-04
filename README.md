@@ -1,8 +1,8 @@
-# Spring-demo
+# Bonus-demo
 
 ## Continuous integration
 Running CI on each commit
-https://github.com/dimazaur/spring-demo/actions
+https://github.com/dimazaur/bonus-demo/actions
 - Maven build with tests
 - Docker image build
 
@@ -27,14 +27,14 @@ mvn spring-boot:run
 
 ## Docker image build
 mvn clean install \
-docker build -t spring-demo --no-cache .
+docker build -t bonus-demo --no-cache .
 
 ## Docker run container
 docker run -it --network=host -p 127.0.0.1:8080:8080 \
 -e MYSQL_DATABASE='jdbc:mysql://mysql.local:3306/transactions' \
 -e MYSQL_USER='root' \
 -e MYSQL_PASSWORD='123456' \
---name spring-demo spring-demo
+--name bonus-demo bonus-demo
 
 ---
 
