@@ -54,7 +54,7 @@ public class PointController {
 
         double points = 0.0;
         for (Transaction transaction : transactions) {
-            points = pointsCalculationStrategy.calculate(transaction);
+            points += pointsCalculationStrategy.calculate(transaction);
         }
 
         return new PointDto(points);

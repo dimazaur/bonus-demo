@@ -18,8 +18,8 @@ public class DefaultExceptionHandler extends ResponseEntityExceptionHandler {
 
     public static final String DEFAULT_RESPONSE = "Internal error";
 
-    @ExceptionHandler(value = {Throwable.class})
-    protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
+    @ExceptionHandler(value = {Exception.class})
+    protected ResponseEntity<Object> handleConflict(Exception ex, WebRequest request) {
         log.error("Handled exception", ex);
         return handleExceptionInternal(ex, DEFAULT_RESPONSE, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }

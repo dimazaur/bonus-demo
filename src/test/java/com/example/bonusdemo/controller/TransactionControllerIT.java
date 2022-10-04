@@ -76,7 +76,7 @@ public class TransactionControllerIT {
 
 
     @Test
-    public void testGetTransactionList() throws JSONException {
+    public void testGetTransactionList() throws Exception {
         //Given
         HttpEntity<String> entity = new HttpEntity<>("{\"userId\": \"ITUSER2\",\"amount\": 75.00,\"timestamp\": \"2022-10-01 01:01:01\"}", headers);
 
@@ -102,7 +102,7 @@ public class TransactionControllerIT {
     }
 
     @Test
-    public void testGetTransactionDatePeriod() throws JSONException {
+    public void testGetTransactionDatePeriod() throws Exception {
         //Given
         HttpEntity<String> entity = new HttpEntity<>("[{\"userId\": \"ITUSER3\",\"amount\": 25.00,\"timestamp\": \"2022-08-01 01:01:01\"}," +
                 "{\"userId\": \"ITUSER3\",\"amount\": 75.00,\"timestamp\": \"2022-09-01 01:01:01\"}," +

@@ -18,7 +18,41 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userId\": \"DDD\",\r\n    \"amount\": 30.00,\r\n    \"timestamp\": \"2022-09-01 01:01:01\"\r\n}",
+					"raw": "{\r\n    \"userId\": \"AAA\",\r\n    \"amount\": 75.00,\r\n    \"timestamp\": \"2022-10-01 01:01:01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add transaction / Wrong request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 30.00,\r\n    \"timestamp\": \"2022-09-01 01:01:01\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -52,7 +86,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 10.00,\r\n        \"timestamp\": \"2022-09-01 01:01:01\"\r\n    },\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 20.00,\r\n        \"timestamp\": \"2022-09-02 02:02:02\"\r\n    },\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 30.00,\r\n        \"timestamp\": \"2022-09-03 03:03:03\"\r\n    }\r\n]",
+					"raw": "[\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 50.00,\r\n        \"timestamp\": \"2022-08-01 01:01:01\"\r\n    },\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 75.00,\r\n        \"timestamp\": \"2022-08-02 02:02:02\"\r\n    },\r\n    {\r\n        \"userId\": \"AAA\",\r\n        \"amount\": 150.00,\r\n        \"timestamp\": \"2022-08-03 03:03:03\"\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -101,7 +135,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/transaction/list/AAA",
+					"raw": "http://localhost:8080/transaction/date/AAA?dateFrom=2022-08-01T00:00:00&dateTo=2022-08-30T00:00:00",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -109,8 +143,18 @@
 					"port": "8080",
 					"path": [
 						"transaction",
-						"list",
+						"date",
 						"AAA"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2022-08-01T00:00:00"
+						},
+						{
+							"key": "dateTo",
+							"value": "2022-08-30T00:00:00"
+						}
 					]
 				}
 			},
@@ -122,10 +166,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/points/total/AAA",
+					"raw": "http://127.0.0.1:8080/points/total/AAA",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"127",
+						"0",
+						"0",
+						"1"
 					],
 					"port": "8080",
 					"path": [
@@ -138,12 +185,33 @@
 			"response": []
 		},
 		{
+			"name": "Calculate total points for the user AAA / Not Found Error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/points/total/XXX",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"points",
+						"total",
+						"XXX"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Calculate points for the user AAA and the time period",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/points/AAA?dateFrom=2022-08-01T00:00:00&dateTo=2022-08-30T00:00:00",
+					"raw": "http://localhost:8080/points/AAA?dateFrom=2022-08-01T00:00:00&dateTo=2022-10-30T00:00:00",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -160,7 +228,7 @@
 						},
 						{
 							"key": "dateTo",
-							"value": "2022-08-30T00:00:00"
+							"value": "2022-10-30T00:00:00"
 						}
 					]
 				}

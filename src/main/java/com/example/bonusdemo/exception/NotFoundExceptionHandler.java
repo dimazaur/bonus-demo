@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class NotFoundExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {ResponseStatusException.class})
-    protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
+    protected ResponseEntity<Object> handleConflict(ResponseStatusException ex, WebRequest request) {
         log.error("Not found exception handler", ex);
         return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
