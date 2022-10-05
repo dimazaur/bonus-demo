@@ -57,6 +57,7 @@ Postman collection file `Transactions.postman_collection.json`
 curl --location --request POST 'http://localhost:8080/transaction' \
 --header 'Content-Type: application/json' \
 --data-raw '{
+"userId": "AAA",
 "amount": 75.00,
 "timestamp": "2022-10-01 01:01:01"
 }'
