@@ -1,5 +1,19 @@
 # Bonus-demo
 
+## Technical requirements
+
+A RESTful application should provide the following functionality:
+1. Adding one transaction for a user by name
+2. Adding a list of transactions for a user by name
+3. List all of the user's transactions
+4. List all transactions for the user and for the time period
+5. Calculate the total points for the user
+6. Calculate points per user and time period
+
+### Bonuses are awarded according to the formula:
+For every $50 spent in one transaction, the user receives 1 point.
+Additionally, for every $100 spent in one transaction, the user receives 2 more points.
+
 ## Continuous integration
 Running CI on each commit
 https://github.com/dimazaur/bonus-demo/actions
