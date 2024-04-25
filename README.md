@@ -1,4 +1,4 @@
-# Bonus-demo
+# Live coding bonus calculation service
 
 ## Technical requirements
 
@@ -16,7 +16,7 @@ Additionally, for every $100 spent in one transaction, the user receives 2 more 
 
 ## Continuous integration
 Running CI on each commit
-https://github.com/dimazaur/bonus-demo/actions
+https://github.com/dimazaur/live-coding-bonus-calculation-service/actions
 - Maven build with tests
 - Docker image build
 
@@ -41,14 +41,14 @@ mvn spring-boot:run
 
 ## Docker image build
 mvn clean install \
-docker build -t bonus-demo --no-cache .
+docker build -t live-coding-bonus-calculation-service --no-cache .
 
 ## Docker run container
 docker run -it --network=host -p 127.0.0.1:8080:8080 \
 -e MYSQL_DATABASE='jdbc:mysql://mysql.local:3306/transactions' \
 -e MYSQL_USER='root' \
 -e MYSQL_PASSWORD='123456' \
---name bonus-demo bonus-demo
+--name live-coding-bonus-calculation-service live-coding-bonus-calculation-service
 
 ---
 
